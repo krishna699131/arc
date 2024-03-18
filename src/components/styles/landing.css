@@ -1,0 +1,133 @@
+.header, .footer {
+    background-color: #333;
+    color: white;
+    padding: 10px; /* Reduced padding for the header */
+    text-align: center;
+  }
+  
+ 
+.expertiseBlocks {
+    display: flex; /* Arrange blocks in a row */
+    justify-content: space-between;
+  }
+  
+  .expertiseBlock {
+    margin: 0 10px; /* Spacing between blocks */
+  }
+  
+  .privilegeContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .privilege {
+    margin: 0 10px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Style the privilege boxes */
+    text-align: center;
+  }
+  
+  /* Hamburger menu icon */
+  .sideHover:before {
+    content: '☰'; /* Unicode character for the hamburger icon */
+    display: block;
+    font-size: 20px;
+    color: black;
+  }
+   
+
+  
+  .footer ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+.sideHover {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: lightblue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .sideHover:hover {
+    width: 150px;
+  }
+  
+  .sideHoverContent {
+    display: none;
+  }
+  
+  .sideHover:hover .sideHoverContent {
+    display: block;
+  }
+  
+  .sideHover ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sideHover li {
+    padding: 10px;
+  }
+  
+  .sideHover li:hover {
+    background-color: lightgray;
+  }
+  
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Solar system animation */
+.solarSystem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px; /* Adjusted for a smaller view */
+    margin-top: 20px; /* Space from the previous content */
+  }
+  
+  .planet {
+    width: 20px; /* Adjusted for a smaller view */
+    height: 20px; /* Adjusted for a smaller view */
+    border-radius: 50%;
+    background-color: #ccc;
+    animation: rotate 10s linear infinite;
+  }
+  
+  #sun {
+    background-color: yellow;
+  }
+  
+  #mercury {
+    left: 250px;
+    top: 0;
+  }
+  
+  #venus {
+    left: 400px;
+    top: 100px;
+  }
+  
+  #earth {
+    left: 200px;
+    top: 200px;
+    animation: rotate 10s linear infinite;
+  }
+  
+  /* Add similar styles for other planets */
+  
