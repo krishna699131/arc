@@ -1,0 +1,39 @@
+.expertises {
+    text-align: center;
+    padding: 20px;
+    h2 {
+      margin-bottom: 30px;
+    }
+    
+    .expertiseBlocks {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        
+        .expertiseBlock {
+          width: 200px; 
+          height: 350px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+          margin: 10px;
+          border: 1px solid #ddd; 
+          padding: 10px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    
+          img {
+            max-width: 100%; 
+            height: auto; 
+          }
+    
+          p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #D4AF37; 
+          }
+        }
+      }
+    }

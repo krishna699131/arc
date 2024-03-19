@@ -1,0 +1,21 @@
+.header {
+    position: fixed; /* Fixed position to keep it stationary at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background: #121a2b; /* Dark background for the header */
+    padding: 0px 10px; /* Padding around the header content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* A subtle shadow to lift the header */
+    z-index: 101; /* Ensure the header is above other content */
+    display: flex;
+    justify-content: center; /* Centers the title horizontally */
+    align-items: center; /* Centers the title vertically */
+
+  }
+  
+  
+  .header h1 {
+    margin: 0; /* Reset the margin for the heading */
+    color: #d4af37; /* Gold color for the text */
+    text-align: center; /* Center the heading */
+  }

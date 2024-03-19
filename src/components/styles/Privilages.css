@@ -1,0 +1,54 @@
+.userPrivileges {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa00; 
+  
+    h2 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .privilege button {
+      margin-top: 10px; /* Spacing above the button */
+      padding: 10px 15px; /* Button padding */
+      background-color: #f0ad4e; /* Bootstrap's button-warning color as an example */
+      border: none; /* No border for a flat design */
+      border-radius: 5px; /* Rounded corners */
+      color: white; /* Text color */
+      cursor: pointer; /* Pointer cursor on hover */
+      outline: none; /* Remove the outline on focus for a clean look */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for some depth */
+      transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+    
+    .privilege button:hover {
+      background-color: #ec971f; /* A slightly darker orange on hover */
+    }
+    
+  
+    .privilegeContainer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  
+      .privilege {
+        flex: 1; 
+        padding: 20px;
+        background-color: #2b69db48;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        border-radius: 8px; 
+        p {
+          &:first-child {
+            color: #d4af37; 
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          
+          &:last-child {
+            color: #666;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+  
