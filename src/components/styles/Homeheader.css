@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css?family=Times+New+Roman&display=swap");
+
+.header-container {
+    position: fixed; /* This will make the header stationary */
+    top: 0; /* Aligns the header to the top */
+    left: 0; /* Aligns the header to the left */
+    width: 100%; /* Ensures the header stretches across the full width of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #03072b;
+    z-index: 1000; /* Ensures the header stays on top of other content */
+
+}
+
+.neon-title {
+  font-size: calc(5px + 5vh);
+  line-height: calc(2px + 2vh);
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
+}
+
+.logo {
+  height: 100px; /* You can set the size to fit your layout */
+  width: auto;
+}
+
+.left-logo {
+  margin-right: 20px; /* Add some space between logo and title */
+}
+
+.right-logo {
+  margin-left: 20px; /* Add some space between title and logo */
+}
+
+@-webkit-keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+  
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+  /*     color: #fccaff;
+      text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+        0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    }
+  }
+  
+  @keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+  
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+  /*     color: #fccaff;
+      text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+        0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    }
+  }
+  

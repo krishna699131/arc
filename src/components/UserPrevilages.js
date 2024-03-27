@@ -1,19 +1,23 @@
 import React from 'react';
 import '../components/styles/Privilages.css';
+import { useNavigate  } from 'react-router-dom';
 
-function UserPrivileges() {
-  const handleKnowMoreClick = (userType) => {
-    // Implement the redirection logic here
-    console.log(userType + ' - Know more clicked');
-    // Example: window.location.href = `/know-more/${userType}`;
-  };
 
-  // Function to handle click for Free Signup/Login button
-  const handleFreeSignUpLoginClick = () => {
-    // Implement the redirection logic here
-    console.log('Free Signup/Login clicked');
-    // Example: window.location.href = '/signup';
-  };
+
+
+  function UserPrivileges() {
+    const navigate = useNavigate(); // Hook for navigation
+  
+    const navigateTo = (path) => {
+      navigate(path);
+    }
+    const handleKnowMoreClick = (userType) => {
+      // Implement the redirection logic here
+      console.log(userType + ' - Know more clicked');
+      // Example: window.location.href = `/know-more/${userType}`;
+    }
+  
+
 
   return (
     <div className="userPrivileges">
@@ -22,7 +26,7 @@ function UserPrivileges() {
         <div className="privilege">
           <p>Free User</p>
           <p>Limited requests</p>
-          <button onClick={handleFreeSignUpLoginClick}>Free Signup/Login</button>
+          <button onClick={() => navigateTo('/signup')}>Free Signup/Login</button>
         </div>
         <div className="privilege">
           <p>Silver User</p>
