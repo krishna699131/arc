@@ -5,6 +5,7 @@ import rightLogo from '../components/Img/shanka2.png';
 import SolarSystem from '../components/Homesolar'; // Update the import path if necessary
 import Footer from '../components/Footer'; // Update the import path if necessary
 
+
 const HomeHeader = () => {
   return (
     <div>
@@ -13,7 +14,8 @@ const HomeHeader = () => {
         <h1 className="neon-title">SHREE VENKATESHWARA JYOTHESHYALAYAM</h1>
         <img src={rightLogo} alt="Right Logo" className="logo right-logo" />
       </header>
-      <SolarSystem />
+      
+      <SolarSystem /> 
       <Footer />
     </div>
   );

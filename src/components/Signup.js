@@ -1,45 +1,136 @@
-import React from 'react';
-import { auth, googleAuthProvider } from '../firebaseConfig';
+import React, { useState } from 'react';
+//import { auth, googleAuthProvider } from '../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
-import { signInWithPopup } from 'firebase/auth';
+//import { signInWithPopup } from 'firebase/auth';
 import '../components/styles/signupsolar.css';
 import '../components/styles/signup.scss';
+import debounce from 'lodash.debounce';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 
 const Solarsignup = () => {
-    const navigate = useNavigate();
-    const signInWithGoogle = async () => {
-        try {
+  const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [fullname, setfullname] = useState('');
+    const [email, setEmail] = useState('');
+    const [timeofbirth, settimeofbirth] = useState('');
+    const [placeofbirth, setplaceofbirth] = useState('');
+    const [dateofbirth, setdateofbirth] = useState('');
+    const [address, setaddress] = useState('');
 
-          const result = await signInWithPopup(auth,googleAuthProvider);
-          if (result)
-          {
-            navigate('/homeheader');
-          }
-          // Assuming you want to redirect the user to the signup page after login
-         
-          // Use user info if needed
-        } catch (error) {
-          console.error("Error signing in with Google", error);
-          alert(error.message);
+    const [usernameAvailable, setUsernameAvailable] = useState(true);
+    const [value, setValue] = useState('');
+
+
+  
+
+    // Define the debounced function outside of the `useCallback`
+    const debouncedCheckUsernameAvailability = debounce(async (username) => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/username?username=${encodeURIComponent(username)}`);
+        const data = await response.json();
+        setUsernameAvailable(data.isAvailable);
+      } catch (error) {
+        console.error("Error checking username availability", error);
+      }
+    }, 300);
+    
+
+  const handleUsernameChange = (e) => {
+    const newUsername = e.target.value;
+    setUsername(newUsername);
+    debouncedCheckUsernameAvailability(newUsername);
+  };
+
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    try {
+        const response = await fetch('http://localhost:5000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password,fullname, email,dateofbirth,timeofbirth,placeofbirth, mobile: value, address }),
+        });
+        const data = await response.json();
+        console.log('Submitting time of birth:', timeofbirth);
+
+        if (data.success) {
+          sessionStorage.setItem('username', username);
+            navigate('/homeheader');  // Redirecting to the same page as successful login
+        } else {
+            alert(data.message);
         }
-    };
+    } catch (error) {
+        console.error("Error during registration", error);
+        alert('Registration failed: ' + error.message);
+    }
+};
+
   return (
     <section className="clearfix">
         <div className="login-form-container">
-        <form className="login-form">
-          <h2>Signup Form</h2>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" required />
-          </div>
-          <button type="submit">Signup</button>
-          <button type="button" onClick={signInWithGoogle}>Login with Google</button>
-        </form>
-      </div>
+            <form className="login-form" onSubmit={handleRegister}>
+                <h2>Registration Form</h2>
+                <div className="form-group">
+                    <label htmlFor="fullname">Full Name</label>
+                    <input type="text" id="fullname" value={fullname} onChange={e => setfullname(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                <label htmlFor="user">User Name</label>
+    <input
+        type="text"
+        id="user"
+        name="username"  // It's good to have a name attribute for form data handling
+        value={username}
+        onChange={handleUsernameChange}
+        required
+        aria-describedby="usernameHelp"  // Assistive technologies use
+    />
+    {username && (  // Only show feedback if username has been typed
+        usernameAvailable ?
+        <p id="usernameHelp" className="username-check available">Username available</p> :
+        <p id="usernameHelp" className="username-check not-available">Username not available</p>
+    )}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="dateofbirth">Date Of Birth</label>
+                    <input type="date" id="dateofbirth" value={dateofbirth} onChange={e => setdateofbirth(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="timeofbirth">Time Of Birth</label>
+                    <input type="time" id="timeofbirth" value={timeofbirth} onChange={e => settimeofbirth(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="placeofbirth">Place Of Birth</label>
+                    <input type="text" id="placeofbirth" value={placeofbirth} onChange={e => setplaceofbirth(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="phone">Phone</label>
+                  <PhoneInput
+                    international
+                    defaultCountry="US"
+                    value={value}
+                    onChange={setValue} required/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="address">Address</label>
+                    <input type="address" id="address" value={address} onChange={e => setaddress(e.target.value)} required />
+                </div>
+                <button type="submit">Register</button>
+                <button type="button" onClick={() => navigate('/login')}>Login</button>
+            </form>
+        </div>
       <ul className="solarsystem">
         <li className="sun"><a href="#sun"><span>Sun</span></a></li>
         <li className="mercury"><a href="#mercury"><span>Mercury</span></a></li>

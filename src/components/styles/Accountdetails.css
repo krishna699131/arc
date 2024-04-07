@@ -1,0 +1,107 @@
+/* AccountDetails.css */
+.container-glass {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background: rgba(34, 17, 95, 0.15); /* Semi-transparent white for glass effect */
+  backdrop-filter: blur(5px); /* Blur effect for background elements */
+  padding: 20px;
+  border-radius: 10px;
+  border: 0.1px solid rgba(30, 255, 255, 0.75); /* Adjust color and opacity for neon effect */
+  box-shadow:
+    0 0 10px rgba(30, 255, 255, 0.75), /* Inner glow */
+    0 0 20px rgba(30, 255, 255, 0.75); /* Medium glow */
+  justify-content: center;
+  text-align: center;
+  z-index: 2000; /* Ensure it's on top */
+  max-width: 900px; /* Set a max-width for larger screens */
+  width: 90%; /* Responsive width */
+  margin: auto; /* Center the popup */
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.account-info {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  justify-content: start;
+  padding: 20px;
+}
+
+.account-info h2 {
+  grid-column: 1 / -1; /* Heading spans all columns */
+  text-transform: uppercase; /* Capitalize headings */
+  font-size: 2.2rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8),
+               0 0 15px rgba(0, 255, 255, 0.8);
+}
+/* AccountDetails.css */
+.detail-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  color: azure;
+  font-size: 15px;
+  overflow: hidden;
+  grid-column: span 1; /* Each item takes up one column */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Spacing between label and input field */
+}
+
+.detail-item label {
+  font-size: 1.1rem;
+  color: #8aff;
+  text-transform: capitalize; /* Capitalize each word of the label */
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8),
+               0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.detail-item input {
+  background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Brighter border */
+  border-radius: 4px;
+  padding: 8px;
+  color: #fff; /* White text color */
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+}
+
+.detail-item input::placeholder {
+  color: #ccc; /* Lighter text color for placeholders */
+}
+
+/* Additional hover effect for inputs */
+.detail-item input:hover {
+  background: rgba(255, 255, 255, 0.25); /* Darker background on hover */
+}
+
+/* Style the update and cancel buttons */
+.update-details-btn, .cancel-details-btn {
+  padding: 10px 20px;
+  background-color: #00bfff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 20px;
+  align-self: center;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.7), 0 0 20px rgba(0, 191, 255, 0.7);
+  transition: background-color 0.3s;
+}
+
+.update-details-btn:hover, .cancel-details-btn:hover {
+  background-color: #008ecc;
+}
+
+/* Rest of your styles for AccountDetailsPage */

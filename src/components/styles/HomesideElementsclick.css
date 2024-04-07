@@ -1,0 +1,27 @@
+/* Before clicking, the item has a default style */
+#AccountDetails {
+    cursor: pointer;
+    color: #386077;
+    transition: all 0.1s ease-in;
+    font-size: 20px;
+    margin-bottom: -15px;
+  }
+  
+  /* While the mouse is pressed down, the :active styles are applied */
+  #AccountDetails:active {
+    color: #aa4200;
+    transform: scale(1.08);
+  }
+  
+  .selected {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00BFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00BFFF;
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.7);
+  }
+  
+  /* Include any other CSS styles from HomesideElementsclick.css here */
+  

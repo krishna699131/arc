@@ -26,7 +26,7 @@ import { useNavigate  } from 'react-router-dom';
         <div className="privilege">
           <p>Free User</p>
           <p>Limited requests</p>
-          <button onClick={() => navigateTo('/signup')}>Free Signup/Login</button>
+          <button onClick={() => navigateTo('/login')}>Free Signup/Login</button>
         </div>
         <div className="privilege">
           <p>Silver User</p>

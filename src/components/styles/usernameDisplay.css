@@ -1,0 +1,39 @@
+@keyframes borderLightAnimation {
+    0% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(
+            to right, 
+            transparent, 
+            #00FFFF, 
+            transparent
+        );
+    }
+    100% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(
+            to left, 
+            transparent, 
+            #00FFFF, 
+            transparent
+        );
+    }
+}
+
+.username-display {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #0a053b7c;;
+    border-radius: 10px;
+    border: 2px solid transparent; /* Ensure border size matches the desired visibility */
+    border-image: linear-gradient(
+        to right, 
+        transparent, 
+        #00FFFF, 
+        transparent
+    ) 1 stretch;
+    animation: borderLightAnimation 3s linear infinite;
+    font-size: 19px; /* Larger text size */
+    font-weight: bold; /* Bold text */
+    color: #00FFFF; 
+}

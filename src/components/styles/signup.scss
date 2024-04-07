@@ -1,69 +1,74 @@
-// Style the login form container
 .login-form-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000; // Ensure it's above the solar system layers
-    width: 100%;
-    max-width: 400px;
-    background: rgba(9, 5, 54, 0.486);
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  
-    .login-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; // Ensure it's above the solar system layers
+  width: 100%;
+  max-width: 750px; // Adjusted max-width for a bit more space
+  background: rgba(9, 5, 54, 0.486);
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #fff; // Set text color to white for the container and all child elements
+  display: flex;
+  flex-direction: column; // Stack children vertically
+
+  .login-form {
+      width: 100%; // Ensure form takes full container width
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); // Two columns
+      gap: 1em; // Space between grid items
+
       h2 {
-        font-size: 1.5em;
-        text-align: center;
+          grid-column: 1 / -1; // Title spans all columns
+          text-align: center; // Center the title text
+          font-size: 1.5em;
+          margin-bottom: 1em; // Space after the title
       }
-  
+
       .form-group {
-        display: flex;
-        flex-direction: column;
-  
-        label {
-          margin-bottom: 0.5em;
-        }
-  
-        input {
-          font-size: 1em;
-          padding: 0.5em;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
+          display: flex;
+          flex-direction: column;
+
+          label {
+              margin-bottom: 0.5em;
+          }
+
+          input {
+              font-size: 1em;
+              padding: 0.5em;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              background: rgba(255, 255, 255, 0.8); // Slightly transparent background for inputs
+              color: #000; // Text color for inputs
+          }
       }
-  
+
       button {
-        padding: 0.5em;
-        margin-top: 1em;
-        border: none;
-        border-radius: 4px;
-        font-size: 1em;
-        cursor: pointer;
-  
-        &:first-of-type {
-          background-color: #007bff;
-          color: white;
-  
-          &:hover {
-            background-color: #0056b3;
+          grid-column: span 2; // Button spans across both columns
+          padding: 0.5em;
+          margin-top: 1em;
+          border: none;
+          border-radius: 4px;
+          font-size: 1em;
+          cursor: pointer;
+          color: #fff; // Ensures text color is white
+
+          &:first-of-type {
+              background-color: #007bff;
+              &:hover {
+                  background-color: #0056b3;
+              }
           }
-        }
-  
-        &:last-of-type {
-          background-color: #db4437;
-          color: white;
-          margin-top: 0.5em;
-  
-          &:hover {
-            background-color: #c1351d;
+
+          &:last-of-type {
+              background-color: #db4437;
+              margin-top: 0.5em;
+              &:hover {
+                  background-color: #c1351d;
+              }
           }
-        }
       }
-    }
   }
+}

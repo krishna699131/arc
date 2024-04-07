@@ -269,7 +269,15 @@ ul#descriptions {
     right: 100px;
     list-style: none;
 }
+
+  
 ul#descriptions h2 {
+    font-weight: bold;
+    color: #ffffff;
+
+
+
+
     cursor: pointer;
     color: #386077;
     -webkit-transition: all 0.15s ease-in;
